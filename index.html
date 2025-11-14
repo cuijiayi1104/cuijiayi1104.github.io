@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>崔嘉仪 - 医学影像专业学生</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        .profile {
+            padding: 60px 0;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .profile-info h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .profile-info .title {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .profile-info p {
+            margin-bottom: 15px;
+            max-width: 700px;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .strengths {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .strength-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .strength-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .strength-card h3 {
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+
+        /* 超声知识图谱样式 */
+        .knowledge-graph {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        .graph-node {
+            margin-bottom: 25px;
+        }
+        
+        .graph-node h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .subnodes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-left: 20px;
+        }
+        
+        .subnode {
+            background-color: #f1f5f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .subnode h4 {
+            color: #3498db;
+            margin-bottom: 8px;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .subnodes {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1>崔嘉仪</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">关于我</a></li>
+                    <li><a href="#strengths">个人优势</a></li>
+                    <li><a href="#contact">联系方式</a></li>
+                    <li><a href="#ultrasound-graph">超声知识图谱</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="profile">
+        <div class="container">
+            <img src="tmp/211616992258_docxword_media_image1.jpeg" alt="崔嘉仪照片" class="profile-img">
+            <div class="profile-info">
+                <h2>崔嘉仪</h2>
+                <p class="title">2022级医学影像专业 大四学生 | 河南省濮阳市</p>
+                <p>经过三年理论学习和实践锻炼，已构建扎实的专业知识体系，积累了丰富的团队协作经验。</p>
+                <p>具备高效完成任务的能力，善于分析问题并主动寻求解决方案，拥有良好的沟通能力和团队协作精神。</p>
+                <a href="#contact" class="contact-btn">联系我</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="strengths" class="section">
+        <div class="container">
+            <h2 class="section-title">个人优势</h2>
+            <div class="strengths">
+                <div class="strength-card">
+                    <h3>团队协作与管理</h3>
+                    <p>多次担任小组负责人，积累宝贵的团队任务管理经验。能合理规划任务优先级，确保项目高质量按时完成，促进团队成员共同成长。</p>
+                </div>
+                <div class="strength-card">
+                    <h3>职业素养</h3>
+                    <p>工作中保持高度积极性，责任心强，具有强烈的责任担当意识和执行力。勇于接受挑战，不断突破自我局限。</p>
+                </div>
+                <div class="strength-card">
+                    <h3>专业技能</h3>
+                    <p>熟练掌握多种专业工具，能灵活运用于团队任务中，有效提升工作效率与成果质量。具备扎实的医学影像专业知识基础。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section" style="background-color: #f1f5f9;">
+        <div class="container">
+            <h2 class="section-title">联系方式</h2>
+            <div style="max-width: 600px;">
+                <p><strong>籍贯：</strong>河南省濮阳市</p>
+                <p><strong>专业：</strong>医学影像专业（2022级 大四）</p>
+                <p><strong>邮箱：</strong>cuijiayi1104@163.com</p>
+                <p><strong>电话：</strong>15302119179</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ultrasound-graph" class="section">
+        <div class="container">
+            <h2 class="section-title">超声成像知识图谱</h2>
+            <div class="knowledge-graph">
+                <div class="graph-node">
+                    <h3>超声成像基本原理</h3>
+                    <div class="subnodes">
+                        <div class="subnode">
+                            <h4>声波特性</h4>
+                            <p>频率高于20kHz的机械波，具有反射、折射、散射特性</p>
+                        </div>
+                        <div class="subnode">
+                            <h4>成像原理</h4>
+                            <p>通过探头发射声波，接收组织反射回声信号并转换为图像</p>
+                        </div>
+                        <div class="subnode">
+                            <h4>探头类型</h4>
+                            <p>线阵探头、凸阵探头、相控阵探头、腔内探头等</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="graph-node">
+                    <h3>超声检查技术分类</h3>
+                    <div class="subnodes">
+                        <div class="subnode">
+                            <h4>B型超声（二维超声）</h4>
+                            <p>二维灰度图像，显示组织解剖结构，应用最广泛</p>
+                        </div>
+                        <div class="subnode">
+                            <h4>彩色多普勒超声</h4>
+                            <p>显示血流方向和速度，包括CDFI、PW、CW技术</p>
+                        </div>
+                        <div class="subnode">
+                            <h4>三维/四维超声</h4>
+                            <p>三维立体成像，四维增加时间维度，常用于产科</p>
+                        </div>
+                        <div class="subnode">
+                            <h4>超声造影</h4>
+                            <p>静脉注射造影剂增强组织血流显示，提高病变检出率</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="graph-node">
+                    <h3>临床应用领域</h3>
+                    <div class="subnodes">
+                        <div class="subnode">
+                            <h4>腹部超声</h4>
+                            <p>肝、胆、胰、脾、肾等腹部脏器检查</p>
+                        </div>
+                        <div class="subnode">
+                            <h4>妇产科超声</h4>
+                            <p>子宫、附件及胎儿生长发育评估</p>
+                        </div>
+                        <div class="subnode">
+                            <h4>心血管超声</h4>
+                            <p>心脏结构与功能评估，血管疾病诊断</p>
+                        </div>
+                        <div class="subnode">
+                            <h4>小器官超声</h4>
+                            <p>甲状腺、乳腺、涎腺、睾丸等小器官检查</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="graph-node">
+                    <h3>超声成像特点</h3>
+                    <div class="subnodes">
+                        <div class="subnode">
+                            <h4>优势</h4>
+                            <p>无辐射、实时成像、操作简便、成本较低、可重复检查</p>
+                        </div>
+                        <div class="subnode">
+                            <h4>局限性</h4>
+                            <p>受气体和骨骼干扰大，图像分辨率有限，依赖操作者经验</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#about">关于我</a></li>
+                        <li><a href="#strengths">个人优势</a></li>
+                        <li><a href="#contact">联系方式</a></li>
+                        <li><a href="#ultrasound-graph">超声知识图谱</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>相关资源</h3>
+                    <ul>
+                        <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/" target="_blank">PubMed</a></li>
+                        <li><a href="https://ieeexplore.ieee.org/" target="_blank">IEEE Xplore</a></li>
+                        <li><a href="https://www.sciencedirect.com/" target="_blank">ScienceDirect</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 崔嘉仪 - 医学影像专业学生. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 页面加载完成后的动画效果
+        window.addEventListener('load', function() {
+            const profileImg = document.querySelector('.profile-img');
+            profileImg.style.opacity = '0';
+            profileImg.style.transform = 'translateY(20px)';
+            profileImg.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            
+            setTimeout(() => {
+                profileImg.style.opacity = '1';
+                profileImg.style.transform = 'translateY(0)';
+            }, 300);
+
+            // 知识图谱节点动画
+            const graphNodes = document.querySelectorAll('.graph-node');
+            graphNodes.forEach((node, index) => {
+                node.style.opacity = '0';
+                node.style.transform = 'translateY(20px)';
+                node.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    node.style.opacity = '1';
+                    node.style.transform = 'translateY(0)';
+                }, 600 + (index * 200));
+            });
+        });
+    </script>
+</body>
+</html>
